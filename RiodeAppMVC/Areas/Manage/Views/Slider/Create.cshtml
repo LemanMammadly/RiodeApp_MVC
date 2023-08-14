@@ -1,0 +1,35 @@
+﻿
+@{
+    ViewData["Title"] = "Create";
+}
+
+@model CreateSliderVM
+
+<form method="post" enctype="multipart/form-data">
+    <div class="mb-3">
+        <label class="form-label">Title</label>
+        <input class="form-control" asp-for="Title">
+        <span style="color:red" asp-validation-for="Title"></span>
+    </div>
+    <div class="mb-3">
+        <label class="form-label">Description</label>
+        <input class="form-control" asp-for="Description">
+        <span style="color:red" asp-validation-for="Description"></span>
+    </div>
+    <div class="mb-3">
+        <label class="form-label">isLeft</label>
+        <input class="form-control" asp-for="isLeft">
+        <span style="color:red" asp-validation-for="isLeft"></span>
+    </div>
+    <div class="mb-3">
+        <label class="form-label">ButtonText</label>
+        <input class="form-control" asp-for="ButtonText">
+        <span style="color:red" asp-validation-for="ButtonText"></span>
+    </div>
+    <div class="mb-3">
+        <label class="form-label">ImageFile</label>
+        <input class="form-control" asp-for="ImageFile">
+        <span style="color:red" asp-validation-for="ImageFile"></span>
+    </div>
+    <button type="submit" class="btn btn-primary">Submit</button>
+</form>

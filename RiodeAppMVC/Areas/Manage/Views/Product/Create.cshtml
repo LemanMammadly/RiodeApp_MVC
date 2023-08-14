@@ -1,0 +1,50 @@
+﻿
+@{
+    ViewData["Title"] = "Create";
+}
+
+@model CreateProductVM
+
+<form method="post" enctype="multipart/form-data">
+    <div class="mb-3">
+        <label class="form-label">Name</label>
+        <input class="form-control" asp-for="Name">
+        <span style="color:red" asp-validation-for="Name"></span>
+    </div>
+    <div class="mb-3">
+        <label class="form-label">Description</label>
+        <input class="form-control" asp-for="Description">
+        <span style="color:red" asp-validation-for="Description"></span>
+    </div>
+    <div class="mb-3">
+        <label class="form-label">Price</label>
+        <input class="form-control" asp-for="Price">
+        <span style="color:red" asp-validation-for="Price"></span>
+    </div>
+    <div class="mb-3">
+        <label class="form-label">Discount</label>
+        <input class="form-control" asp-for="Discount">
+        <span style="color:red" asp-validation-for="Discount"></span>
+    </div>
+    <div class="mb-3">
+        <label class="form-label">StockCount</label>
+        <input class="form-control" asp-for="StockCount">
+        <span style="color:red" asp-validation-for="StockCount"></span>
+    </div>
+    <div class="mb-3">
+        <label class="form-label">Rating</label>
+        <input class="form-control" asp-for="Rating">
+        <span style="color:red" asp-validation-for="Rating"></span>
+    </div>
+    <div class="mb-3">
+        <label class="form-label">MainImageFile</label>
+        <input class="form-control" asp-for="MainImageFile">
+        <span style="color:red" asp-validation-for="MainImageFile"></span>
+    </div>
+    <div class="mb-3">
+        <label class="form-label">ImageFiles</label>
+        <input class="form-control" asp-for="ImageFiles">
+        <span style="color:red" asp-validation-for="ImageFiles"></span>
+    </div>
+    <button type="submit" class="btn btn-primary">Submit</button>
+</form>
