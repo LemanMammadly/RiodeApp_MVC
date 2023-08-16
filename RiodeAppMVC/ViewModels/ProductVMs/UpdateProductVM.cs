@@ -29,6 +29,8 @@ namespace RiodeAppMVC.ViewModels.ProductVMs
 
         public ICollection<IFormFile>? ProductImagesFiles { get; set; }
 
+        public List<int> CategoryIds { get; set; }
+
     }
 }
 

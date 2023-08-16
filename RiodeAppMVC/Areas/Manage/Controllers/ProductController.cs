@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.AspNetCore.Mvc.Rendering;
 using Microsoft.EntityFrameworkCore;
 using RiodeAppMVC.Extensions;
 using RiodeAppMVC.Models;
@@ -16,19 +17,23 @@ namespace RiodeAppMVC.Areas.Manage.Controllers
     public class ProductController : Controller
     {
         readonly IProductService _productService;
+        readonly ICategoryService _catService;
 
-        public ProductController(IProductService productService)
+        public ProductController(IProductService productService, ICategoryService catService)
         {
             _productService = productService;
+            _catService = catService;
         }
 
         public async Task<IActionResult> Index()
         {
-            return View(await _productService.GetAll(true));
+            return View(await _productService.GetTable.Include(p=>p.ProductCategories)
+                                .ThenInclude(pc=>pc.Category).ToListAsync());
         }
 
         public IActionResult Create()
         {
+            ViewBag.Categories = new SelectList(_catService.GetTable, "Id", "Name");
             return View();
         }
 
@@ -63,7 +68,11 @@ namespace RiodeAppMVC.Areas.Manage.Controllers
                 }
             }
 
-            if (!ModelState.IsValid) return View();
+            if (!ModelState.IsValid)
+            {
+                ViewBag.Categories = new SelectList(_catService.GetTable, "Id", "Name");
+                return View();
+            }
 
             await _productService.Create(productVM);
             return RedirectToAction(nameof(Index));
@@ -72,8 +81,10 @@ namespace RiodeAppMVC.Areas.Manage.Controllers
         public async Task<IActionResult> Update(int? id)
         {
             if (id == null || id <= 0) return BadRequest();
-            var entity = await _productService.GetTable.Include(p => p.ProductImages).SingleOrDefaultAsync(p => p.Id == id);
+            var entity = await _productService.GetTable.Include(p => p.ProductImages).Include(p => p.ProductCategories).SingleOrDefaultAsync(p => p.Id == id);
             if (entity == null) return BadRequest();
+            ViewBag.Categories = new SelectList(_catService.GetTable, "Id", "Name");
+
             UpdateProductGetVM updateProduct = new UpdateProductGetVM()
             {
                 Name = entity.Name,
@@ -83,7 +94,8 @@ namespace RiodeAppMVC.Areas.Manage.Controllers
                 Rating = entity.Rating,
                 StockCount = entity.StockCount,
                 MainImage = entity.MainImage,
-                ProductImages=entity.ProductImages
+                ProductImages = entity.ProductImages,
+                ProductCategoryIds = entity.ProductCategories.Select(p => p.CategoryId).ToList()
             };
             return View(updateProduct);
         }
@@ -95,7 +107,6 @@ namespace RiodeAppMVC.Areas.Manage.Controllers
             var entity = await _productService.GetTable.Include(p => p.ProductImages).SingleOrDefaultAsync(p => p.Id == id);
             if (entity == null) return BadRequest();
 
-
             UpdateProductVM updateProduct = new UpdateProductVM()
             {
                 Name = productGetVM.Name,
@@ -105,9 +116,18 @@ namespace RiodeAppMVC.Areas.Manage.Controllers
                 Rating = productGetVM.Rating,
                 StockCount = productGetVM.StockCount,
                 MainImage=productGetVM.MainImageFile,
-                ProductImagesFiles=productGetVM.ProductImageFiles
+                ProductImagesFiles=productGetVM.ProductImageFiles,
+                CategoryIds=productGetVM.ProductCategoryIds
             };
+
+            //if (!ModelState.IsValid)
+            //{
+            //    //ViewBag.Categories = new SelectList(_catService.GetTable, "Id", "Name");
+            //    return View();
+            //}
+
             await _productService.Update(id, updateProduct);
+
             return RedirectToAction(nameof(Index));
         }
 

@@ -69,87 +69,7 @@
                     </div>
                 }
             </div>
-            <div class="category-wrap row cols-lg-4 cols-sm-2 cols-1 gutter-sm">
-                <div class="category category-absolute category-banner appear-animate mb-2"
-                     data-animation-options="{
-                            'name': 'fadeInLeftShorter',
-                            'delay': '.4s'
-                        }">
-                    <a href="#">
-                        <figure class="category-media">
-                            <img src="~/images/demos/demo7/categories/1.jpg" alt="category" width="468"
-                                 height="320" />
-                        </figure>
-                    </a>
-                    <div class="category-content align-items-center x-50 w-100">
-                        <h4 class="category-name text-uppercase">All Star Nike Shoes</h4>
-                        <span class="category-count text-uppercase">
-                            <span>16</span> Products
-                        </span>
-                        <a href="demo7-shop.html" class="btn btn-underline btn-link">Shop Now</a>
-                    </div>
-                </div>
-
-                <div class="banner banner-fixed appear-animate mb-2" data-animation-options="{
-                            'name': 'fadeInLeftShorter',
-                            'delay': '.2s'
-                        }">
-                    <a href="#">
-                        <figure class="category-media">
-                            <img src="~/images/demos/demo7/categories/2.jpg" alt="category" width="468"
-                                 height="320" style="background-color: rgb(43, 43, 35);" />
-                        </figure>
-                    </a>
-                    <div class="banner-content text-center x-50 y-50 w-100">
-                        <h4 class="banner-subtitle text-uppercase text-primary font-weight-bold">Seasonal</h4>
-                        <h3 class="banner-title text-white ls-m">Clearance</h3>
-                        <p class="font-weight-semi-bold">Top 5 trends From Riode</p>
-                        <a href="demo7-shop.html" class="btn btn-white btn-link btn-underline">
-                            Shop Now<i class="d-icon-arrow-right"></i>
-                        </a>
-                    </div>
-                </div>
-
-                <div class="category category-absolute category-banner appear-animate mb-2"
-                     data-animation-options="{
-                            'name': 'fadeInRightShorter',
-                            'delay': '.2s'
-                        }">
-                    <a href="#">
-                        <figure class="category-media">
-                            <img src="~/images/demos/demo7/categories/3.jpg" alt="category" width="468"
-                                 height="320" />
-                        </figure>
-                    </a>
-                    <div class="category-content align-items-center x-50 w-100">
-                        <h4 class="category-name text-uppercase">All star Nike Shoes</h4>
-                        <span class="category-count text-uppercase">
-                            <span>16</span> Products
-                        </span>
-                        <a href="demo7-shop.html" class="btn btn-underline btn-link x-50">Shop Now</a>
-                    </div>
-                </div>
-
-                <div class="banner banner-fixed appear-animate mb-2" data-animation-options="{
-                            'name': 'fadeInRightShorter',
-                            'delay': '.4s'
-                        }">
-                    <a href="#">
-                        <figure class="category-media">
-                            <img src="~/images/demos/demo7/categories/4.jpg" alt="category" width="468"
-                                 height="320" style="background-color: rgb(196, 140, 92);" />
-                        </figure>
-                    </a>
-                    <div class="banner-content text-center x-50 y-50 w-100">
-                        <h4 class="banner-subtitle text-uppercase font-weight-bold">Seasonal</h4>
-                        <h3 class="banner-title text-white ls-m">The Latest</h3>
-                        <p class="font-weight-semi-bold text-white">Discover the new design</p>
-                        <a href="demo7-shop.html" class="btn btn-white btn-link btn-underline">
-                            Shop Now<i class="d-icon-arrow-right"></i>
-                        </a>
-                    </div>
-                </div>
-            </div>
+           <partial name="_CategoryHomePartial" model="Model.Categories"/>
         </section>
 
         <section class="mt-10 pt-7 appear-animate" data-animation-options="{
@@ -163,7 +83,7 @@
                             <div class="col-lg-4 col-6 mb-4">
                                 <div class="product text-center">
                                     <figure class="product-media">
-                                        <a href="demo7-product.html">
+                                        <a asp-controller="Shop" asp-action="Detail" asp-route-id="@item.Id">
                                             <img src="@item.MainImage" alt="product" width="500"
                                                  height="345">
                                         </a>
@@ -188,7 +108,7 @@
                                             <a href="demo7-shop.html">Shoes</a>
                                         </div>
                                         <h3 class="product-name">
-                                            <a href="demo7-product.html">@item.Name</a>
+                                            <a asp-controller="Shop" asp-action="Detail" asp-route-id="@item.Id">@item.Name</a>
                                         </h3>
                                         <div class="product-price">
                                             <ins class="new-price">$@item.Price</ins><del class="old-price">$@item.Price</del>

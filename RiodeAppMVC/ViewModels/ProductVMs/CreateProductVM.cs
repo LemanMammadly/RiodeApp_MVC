@@ -30,6 +30,8 @@ namespace RiodeAppMVC.ViewModels.ProductVMs
         public IFormFile MainImageFile { get; set; }
 
         public List<IFormFile>? ImageFiles { get; set; }
+
+        public List<int> CategoryIds { get; set; }
     }
 }
 

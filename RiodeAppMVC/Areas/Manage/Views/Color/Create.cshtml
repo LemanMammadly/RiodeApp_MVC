@@ -1,0 +1,16 @@
+﻿
+@{
+    ViewData["Title"] = "Create";
+}
+
+@model CreateColorVM
+
+<form method="post" enctype="multipart/form-data">
+    <div class="mb-3">
+        <label class="form-label">Code</label>
+        <input class="form-control" asp-for="Code">
+        <span style="color:red" asp-validation-for="Code"></span>
+        <span style="color:red">@ViewBag.ColorError</span>
+    </div>
+    <button type="submit" class="btn btn-primary">Submit</button>
+</form>

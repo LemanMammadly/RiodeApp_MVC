@@ -12,17 +12,37 @@ namespace RiodeAppMVC.Services.Implements
     {
         readonly RiodeDbContext _context;
         readonly IFileService _fileService;
+        readonly ICategoryService _catService;
 
-        public ProductService(RiodeDbContext context, IFileService fileService)
+        public ProductService(RiodeDbContext context, IFileService fileService, ICategoryService catService)
         {
             _context = context;
             _fileService = fileService;
+            _catService = catService;
         }
 
         public IQueryable<Product> GetTable { get => _context.Set<Product>(); }
 
         public async Task Create(CreateProductVM productVM)
         {
+            if(productVM.CategoryIds.Count>4)
+            {
+                throw new Exception();
+            }
+            if (!await _catService.IsAllExist(productVM.CategoryIds))
+            {
+                throw new ArgumentException();
+            }
+
+            List<ProductCategory> prodCategories = new List<ProductCategory>();
+            foreach (var id in productVM.CategoryIds)
+            {
+                prodCategories.Add(new ProductCategory
+                {
+                    CategoryId = id
+                });
+            }
+
             Product entity=new Product(){
                 Name=productVM.Name,
                 Description=productVM.Description,
@@ -31,7 +51,8 @@ namespace RiodeAppMVC.Services.Implements
                 StockCount=productVM.StockCount,
                 Rating=productVM.Rating,
                 SellCount=productVM.SellCount,
-                MainImage=await _fileService.UploadAsync(productVM.MainImageFile,Path.Combine("imgs","products"))
+                MainImage=await _fileService.UploadAsync(productVM.MainImageFile,Path.Combine("imgs","products")),
+                ProductCategories=prodCategories
             };
             if(productVM.ImageFiles != null)
             {
@@ -113,13 +134,40 @@ namespace RiodeAppMVC.Services.Implements
 
         public async Task Update(int? id, UpdateProductVM productVM)
         {
-            var entity = await GetById(id);
+            if(productVM.CategoryIds.Count>4)
+            {
+                throw new Exception();
+            }
+            if (!await _catService.IsAllExist(productVM.CategoryIds))
+            {
+                throw new ArgumentException();
+            }
+            List<ProductCategory> productCategories = new List<ProductCategory>();
+
+            foreach (var catId in productVM.CategoryIds)
+            {
+               productCategories.Add(new ProductCategory
+               {
+                  CategoryId = catId
+               });
+            }
+
+
+            var entity = await _context.Products.Include(p => p.ProductCategories).SingleOrDefaultAsync(p=>p.Id==id);
+            if (entity is null) throw new ArgumentNullException();
+
+            if(entity.ProductCategories != null)
+            {
+                entity.ProductCategories.Clear();
+            }
+
             entity.Name = productVM.Name;
             entity.Description = productVM.Description;
             entity.Price = productVM.Price;
             entity.Discount = productVM.Discount;
             entity.Rating = productVM.Rating;
             entity.StockCount = productVM.StockCount;
+            entity.ProductCategories = productCategories;
 
             if(productVM.MainImage != null)
             {

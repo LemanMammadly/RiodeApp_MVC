@@ -29,7 +29,12 @@ namespace RiodeAppMVC.Models
 		public string MainImage { get; set; }
 
 		public ICollection<ProductImage>? ProductImages { get; set; }
+
+        public ICollection<ProductCategory>? ProductCategories { get; set; }
+
+		public ICollection<ProductColor>? ProductColors { get; set; }
 	}
 }
+
 
 

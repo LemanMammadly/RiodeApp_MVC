@@ -21,6 +21,46 @@ namespace RiodeAppMVC.Migrations
 
             SqlServerModelBuilderExtensions.UseIdentityColumns(modelBuilder, 1L, 1);
 
+            modelBuilder.Entity("RiodeAppMVC.Models.Category", b =>
+                {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int");
+
+                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"), 1L, 1);
+
+                    b.Property<string>("Name")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<bool>("isDeleted")
+                        .HasColumnType("bit");
+
+                    b.HasKey("Id");
+
+                    b.ToTable("Categories");
+                });
+
+            modelBuilder.Entity("RiodeAppMVC.Models.Color", b =>
+                {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int");
+
+                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"), 1L, 1);
+
+                    b.Property<string>("Code")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<bool>("isDeleted")
+                        .HasColumnType("bit");
+
+                    b.HasKey("Id");
+
+                    b.ToTable("Colors");
+                });
+
             modelBuilder.Entity("RiodeAppMVC.Models.Product", b =>
                 {
                     b.Property<int>("Id")
@@ -63,6 +103,58 @@ namespace RiodeAppMVC.Migrations
                     b.HasKey("Id");
 
                     b.ToTable("Products");
+                });
+
+            modelBuilder.Entity("RiodeAppMVC.Models.ProductCategory", b =>
+                {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int");
+
+                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"), 1L, 1);
+
+                    b.Property<int>("CategoryId")
+                        .HasColumnType("int");
+
+                    b.Property<int>("ProductId")
+                        .HasColumnType("int");
+
+                    b.Property<bool>("isDeleted")
+                        .HasColumnType("bit");
+
+                    b.HasKey("Id");
+
+                    b.HasIndex("CategoryId");
+
+                    b.HasIndex("ProductId");
+
+                    b.ToTable("ProductCategories");
+                });
+
+            modelBuilder.Entity("RiodeAppMVC.Models.ProductColor", b =>
+                {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int");
+
+                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"), 1L, 1);
+
+                    b.Property<int>("ColorId")
+                        .HasColumnType("int");
+
+                    b.Property<int>("ProductId")
+                        .HasColumnType("int");
+
+                    b.Property<bool>("isDeleted")
+                        .HasColumnType("bit");
+
+                    b.HasKey("Id");
+
+                    b.HasIndex("ColorId");
+
+                    b.HasIndex("ProductId");
+
+                    b.ToTable("ProductColors");
                 });
 
             modelBuilder.Entity("RiodeAppMVC.Models.ProductImage", b =>
@@ -128,6 +220,44 @@ namespace RiodeAppMVC.Migrations
                     b.ToTable("Sliders");
                 });
 
+            modelBuilder.Entity("RiodeAppMVC.Models.ProductCategory", b =>
+                {
+                    b.HasOne("RiodeAppMVC.Models.Category", "Category")
+                        .WithMany("ProductCategories")
+                        .HasForeignKey("CategoryId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.HasOne("RiodeAppMVC.Models.Product", "Product")
+                        .WithMany("ProductCategories")
+                        .HasForeignKey("ProductId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.Navigation("Category");
+
+                    b.Navigation("Product");
+                });
+
+            modelBuilder.Entity("RiodeAppMVC.Models.ProductColor", b =>
+                {
+                    b.HasOne("RiodeAppMVC.Models.Color", "Color")
+                        .WithMany("ProductColors")
+                        .HasForeignKey("ColorId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.HasOne("RiodeAppMVC.Models.Product", "Product")
+                        .WithMany("ProductColors")
+                        .HasForeignKey("ProductId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.Navigation("Color");
+
+                    b.Navigation("Product");
+                });
+
             modelBuilder.Entity("RiodeAppMVC.Models.ProductImage", b =>
                 {
                     b.HasOne("RiodeAppMVC.Models.Product", "Product")
@@ -139,8 +269,22 @@ namespace RiodeAppMVC.Migrations
                     b.Navigation("Product");
                 });
 
+            modelBuilder.Entity("RiodeAppMVC.Models.Category", b =>
+                {
+                    b.Navigation("ProductCategories");
+                });
+
+            modelBuilder.Entity("RiodeAppMVC.Models.Color", b =>
+                {
+                    b.Navigation("ProductColors");
+                });
+
             modelBuilder.Entity("RiodeAppMVC.Models.Product", b =>
                 {
+                    b.Navigation("ProductCategories");
+
+                    b.Navigation("ProductColors");
+
                     b.Navigation("ProductImages");
                 });
 #pragma warning restore 612, 618

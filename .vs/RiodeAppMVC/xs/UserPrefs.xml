@@ -1,25 +1,45 @@
 ﻿<Properties StartupConfiguration="{F1536085-DF1C-407F-B0DB-B3814D1DE6DF}|Default">
-  <MonoDevelop.Ide.DebuggingService.PinnedWatches />
+  <MultiItemStartupConfigurations />
   <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" />
   <MonoDevelop.Ide.ItemProperties.RiodeAppMVC PreferredExecutionTarget="/Applications/Google Chrome.app" />
+  <MonoDevelop.Ide.DebuggingService.PinnedWatches />
   <MonoDevelop.Ide.DebuggingService.Breakpoints>
     <BreakpointStore />
   </MonoDevelop.Ide.DebuggingService.Breakpoints>
-  <MonoDevelop.Ide.Workbench ActiveDocument="RiodeAppMVC/Models/Product.cs">
+  <MonoDevelop.Ide.Workbench ActiveDocument="RiodeAppMVC/Areas/Manage/Views/Product/Update.cshtml">
     <Files>
-      <File FileName="RiodeAppMVC/Models/Product.cs" Line="18" Column="37" />
-      <File FileName="RiodeAppMVC/DataAccess/RiodeDbContext.cs" Line="16" Column="1" />
-      <File FileName="RiodeAppMVC/Controllers/HomeController.cs" Line="31" Column="1" />
-      <File FileName="RiodeAppMVC/ViewModels/HomeVMs/HomeVM.cs" Line="14" Column="1" />
-      <File FileName="RiodeAppMVC/Views/Home/Index.cshtml" Line="194" Column="68" />
+      <File FileName="RiodeAppMVC/Areas/Manage/Controllers/ProductController.cs" />
+      <File FileName="RiodeAppMVC/Areas/Manage/Views/Product/Update.cshtml" Line="77" Column="47" />
     </Files>
     <Pads>
       <Pad Id="ProjectPad">
         <State name="__root__">
-          <Node name="RiodeAppMVC" expanded="True">
+          <Node name="RiodeAppMVC">
             <Node name="RiodeAppMVC" expanded="True">
-              <Node name="Models" expanded="True">
-                <Node name="Product.cs" selected="True" />
+              <Node name="Areas" expanded="True">
+                <Node name="Manage" expanded="True">
+                  <Node name="Controllers" expanded="True" />
+                  <Node name="Views" expanded="True">
+                    <Node name="Product" expanded="True">
+                      <Node name="Update.cshtml" selected="True" />
+                    </Node>
+                    <Node name="Slider" expanded="True" />
+                  </Node>
+                </Node>
+              </Node>
+              <Node name="Controllers" expanded="True" />
+              <Node name="Extensions" expanded="True" />
+              <Node name="Models" expanded="True" />
+              <Node name="Services" expanded="True">
+                <Node name="Implements" expanded="True" />
+                <Node name="Interfaces" expanded="True" />
+              </Node>
+              <Node name="Views" expanded="True">
+                <Node name="Home" expanded="True" />
+                <Node name="Shared" expanded="True" />
+              </Node>
+              <Node name="wwwroot" expanded="True">
+                <Node name="select2" expanded="True" />
               </Node>
             </Node>
           </Node>
@@ -27,5 +47,4 @@
       </Pad>
     </Pads>
   </MonoDevelop.Ide.Workbench>
-  <MultiItemStartupConfigurations />
 </Properties>

@@ -32,7 +32,9 @@ namespace RiodeAppMVC.ViewModels.ProductVMs
 
         public ICollection<IFormFile>? ProductImageFiles { get; set; }
 
+        public List<int> ProductCategoryIds { get; set; }
 
     }
 }
+
 

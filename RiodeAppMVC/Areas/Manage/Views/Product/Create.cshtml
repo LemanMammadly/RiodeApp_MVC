@@ -4,6 +4,9 @@
 }
 
 @model CreateProductVM
+@section styles{
+    <link href="~/select2/css/select2.min.css" rel="stylesheet" />
+}
 
 <form method="post" enctype="multipart/form-data">
     <div class="mb-3">
@@ -37,6 +40,12 @@
         <span style="color:red" asp-validation-for="Rating"></span>
     </div>
     <div class="mb-3">
+        <label>Categories</label>
+        <select class="cat w-100" asp-for="CategoryIds" asp-items="@ViewBag.Categories" multiple="multiple">
+        </select>
+        <span class="text-danger" asp-validation-for="CategoryIds"></span>
+    </div>
+    <div class="mb-3">
         <label class="form-label">MainImageFile</label>
         <input class="form-control" asp-for="MainImageFile">
         <span style="color:red" asp-validation-for="MainImageFile"></span>
@@ -48,3 +57,13 @@
     </div>
     <button type="submit" class="btn btn-primary">Submit</button>
 </form>
+
+@section scripts{
+    <script src="~/select2/js/select2.min.js"></script>
+    <partial name="_ValidationPartial" />
+    <script>$(document).ready(function () {
+            $('.cat').select2({
+                maximumSelectionLength: 4
+            });
+        });</script>
+}
