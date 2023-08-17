@@ -66,3 +66,7 @@
 /Users/imac/Projects/RiodeAppMVC/RiodeAppMVC/bin/Debug/net6.0/Microsoft.Extensions.Identity.Core.dll
 /Users/imac/Projects/RiodeAppMVC/RiodeAppMVC/bin/Debug/net6.0/Microsoft.Extensions.Identity.Stores.dll
 /Users/imac/Projects/RiodeAppMVC/RiodeAppMVC/bin/Debug/net6.0/System.Diagnostics.DiagnosticSource.dll
+/Users/imac/Projects/RiodeAppMVC/RiodeAppMVC/bin/Debug/net6.0/Microsoft.AspNetCore.JsonPatch.dll
+/Users/imac/Projects/RiodeAppMVC/RiodeAppMVC/bin/Debug/net6.0/Microsoft.AspNetCore.Mvc.NewtonsoftJson.dll
+/Users/imac/Projects/RiodeAppMVC/RiodeAppMVC/bin/Debug/net6.0/Newtonsoft.Json.dll
+/Users/imac/Projects/RiodeAppMVC/RiodeAppMVC/bin/Debug/net6.0/Newtonsoft.Json.Bson.dll

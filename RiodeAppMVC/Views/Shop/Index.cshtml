@@ -55,7 +55,7 @@
                                     <div class="product text-center">
                                         <figure class="product-media">
                                             <a asp-controller="Shop" asp-action="Detail" asp-route-id="@item.Id">
-                                                <img src="@item.MainImage" alt="product" width="280"
+                                                <img src="~/@item.MainImage" alt="product" width="280"
                                                      height="315">
                                             </a>
                                             <div class="product-label-group">
@@ -93,13 +93,13 @@
                                             <div class="product-price">
                                                 @if (item.Discount != 0)
                                                 {
-                                                    <ins class="new-price">$@(@item.Price-(@item.Price * @item.Discount /100)) </ins><del class="old-price">$@item.Price</del>
+                                                    <ins class="new-price">$@String.Format("{0:0.00}", @item.Price - (@item.Price * @item.Discount / 100)) </ins><del class="old-price">$@item.Price</del>
                                                 }
                                                 else
                                                 {
                                                     <ins class="new-price">$@item.Price</ins>
                                                 }
-                                                </div>
+                                            </div>
                                             <div class="ratings-container">
                                                 <div>
                                                     @for (int i = 0; i < item.Rating; i++)

@@ -76,5 +76,21 @@ public class ColorController : Controller
         await _colorService.Update(id, colorVM);
         return RedirectToAction(nameof(Index));
     }
+
+
+    public async Task<IActionResult> Delete(int? id)
+    {
+        if (id == null || id <= 0) return BadRequest();
+        try
+        {
+            await _colorService.Delete(id);
+            return RedirectToAction(nameof(Index));
+        }
+        catch
+        {
+            TempData["Error"] = "This color have products.Cant delete this color!";
+            return RedirectToAction(nameof(Index));
+        }
+    }
 }
 

@@ -32,9 +32,18 @@ public class ColorService : IColorService
         await _context.SaveChangesAsync();
     }
 
-    public Task Delete(int? id)
+    public async Task Delete(int? id)
     {
-        throw new NotImplementedException();
+        var entity = await GetById(id);
+        var entityColor = await _context.Products.Where(p => p.ProductColors.Any(pc => pc.ColorId == id)).ToListAsync();
+        if(entityColor.Count<=0)
+        {
+            _context.Colors.Remove(entity);
+            await _context.SaveChangesAsync();
+        }
+        else {
+            throw new Exception();
+        }
     }
 
     public async Task<ICollection<Color>> GetAll(bool takeAll)
