@@ -1,6 +1,11 @@
 ﻿@model HomeVM
+
+@section styles{
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/toastr.min.css" />
+}
+
 <main class="main">
-<input type="hidden" value="@ViewBag.ProductCount" id="prodCount">
+    <input type="hidden" value="@ViewBag.ProductCount" id="prodCount">
     <div class="page-content">
         <section class="intro-section">
             <div class="owl-carousel owl-theme row owl-nav-arrow owl-nav-fade  intro-slider mb-2 animation-slider cols-1 gutter-no"
@@ -79,7 +84,7 @@
             <div class="container">
                 <h2 class="title title-center">Best Sellers</h2>
                 <div class="row" id="myTabContent">
-                   <partial name="_ProductPartial" model="Model.Products"/>
+                    <partial name="_ProductPartial" model="Model.Products" />
                 </div>
             </div>
         </section>
@@ -673,10 +678,9 @@
 @section scripts{
     <script src="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/toastr.min.js"></script>
     <script>let prods = document.querySelectorAll(".feat-prod .d-icon-bag");
-        document.getElementById('myTabContent').addEventListener("click", e=>{
+        document.getElementById('myTabContent').addEventListener("click", e => {
             e.preventDefault();
-            if(e.srcElement.classList.contains("d-icon-bag"))
-            {
+            if (e.srcElement.classList.contains("d-icon-bag")) {
                 fetch(e.target.parentElement.href)
                     .then(res => {
                         if (res.ok) {
@@ -704,7 +708,6 @@
                         }
                         else {
                             Command: toastr["error"]("Bir xəta baş verdi -else")
-
                             toastr.options = {
                                 "closeButton": false,
                                 "debug": false,

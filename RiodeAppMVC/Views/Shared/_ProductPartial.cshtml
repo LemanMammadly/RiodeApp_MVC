@@ -1,4 +1,4 @@
-﻿@model List<Product>
+﻿ @model List<Product>
 
 @foreach (var item in Model)
 {
@@ -10,16 +10,16 @@
                          height="345">
                 </a>
                 <div class="product-action-vertical">
-                    <a href="#" class="btn-product-icon btn-cart" data-toggle="modal"
+                    <a asp-controller="Home" asp-action="AddBasket" asp-route-id="@item.Id" class="btn-product-icon btn-cart" data-toggle="modal"
                        data-target="#addCartModal" title="Add to cart">
                         <i class="d-icon-bag"></i>
                     </a>
-                    <a href="#" class="btn-product-icon btn-wishlist" title="Add to wishlist">
+                    <a class="btn-product-icon btn-wishlist" title="Add to wishlist">
                         <i class="d-icon-heart"></i>
                     </a>
                 </div>
                 <div class="product-action">
-                    <a href="#" class="btn-product btn-quickview" title="Quick View">
+                    <a class="btn-product btn-quickview" title="Quick View">
                         Quick
                         View
                     </a>
@@ -62,7 +62,7 @@
                 <div class="product-variations">
                     <a class="color active" data-src="~/images/demos/demo7/products/2.jpg"
                        href="#" style="background-color: #8f7a68"></a>
-                    <a class="color" data-src="~/images/demos/demo7/products/1.jpg" href="#"
+                    <a class="color" data-src="~/images/demos/demo7/products/1.jpg" href=" "
                        style="background-color: #fee2cf"></a>
                     <a class="color" data-src="~/images/demos/demo7/products/3.jpg" href="#"
                        style="background-color: #9a999d"></a>

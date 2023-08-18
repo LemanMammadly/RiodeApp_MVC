@@ -11,14 +11,12 @@ namespace RiodeAppMVC.Controllers;
 
 public class HomeController : Controller
 {
-    readonly RiodeDbContext _context;
     readonly ISliderService _sliderService;
     readonly IProductService _productService;
     readonly ICategoryService _categoryService;
 
-    public HomeController(RiodeDbContext context, ISliderService sliderService, IProductService productService, ICategoryService categoryService)
+    public HomeController(ISliderService sliderService, IProductService productService, ICategoryService categoryService)
     {
-        _context = context;
         _sliderService = sliderService;
         _productService = productService;
         _categoryService = categoryService;
@@ -39,7 +37,7 @@ public class HomeController : Controller
     public async Task<IActionResult> AddBasket(int? id)
     {
         if (id == null || id <= 0) return BadRequest();
-        if (!await _productService.GetTable.AllAsync(p => p.Id == id)) return NotFound();
+        if (!await _productService.GetTable.AnyAsync(p => p.Id == id)) return NotFound();
         var basket = HttpContext.Request.Cookies["basket"];
         List<BasketItemVM> items = basket == null ? new List<BasketItemVM>() : JsonConvert.DeserializeObject<List<BasketItemVM>>(basket);
         var item = items.SingleOrDefault(i => i.Id == id);

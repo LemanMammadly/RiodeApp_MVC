@@ -1,14 +1,14 @@
 ﻿<Properties StartupConfiguration="{F1536085-DF1C-407F-B0DB-B3814D1DE6DF}|Default">
   <MonoDevelop.Ide.ItemProperties.RiodeAppMVC PreferredExecutionTarget="/Applications/Google Chrome.app" />
-  <MonoDevelop.Ide.Workbench ActiveDocument="RiodeAppMVC/Views/Shared/Components/Basket/Default.cshtml">
+  <MonoDevelop.Ide.Workbench ActiveDocument="RiodeAppMVC/ViewComponents/BasketViewComponent.cs">
     <Files>
-      <File FileName="RiodeAppMVC/ViewComponents/BasketViewComponent.cs" />
+      <File FileName="RiodeAppMVC/ViewComponents/BasketViewComponent.cs" Line="19" Column="6" />
       <File FileName="RiodeAppMVC/ViewComponents/HeaderViewComponent.cs" />
-      <File FileName="RiodeAppMVC/Views/Shared/Components/Basket/Default.cshtml" Line="5" Column="38" />
+      <File FileName="RiodeAppMVC/Views/Shared/Components/Basket/Default.cshtml" Line="34" Column="1" />
       <File FileName="RiodeAppMVC/Views/Shared/_Layout.cshtml" />
       <File FileName="RiodeAppMVC/Views/Shared/_ProductPartial.cshtml" />
       <File FileName="RiodeAppMVC/Views/Home/Index.cshtml" />
-      <File FileName="RiodeAppMVC/Views/Shared/Components/Header/Default.cshtml" />
+      <File FileName="RiodeAppMVC/Views/Shared/Components/Header/Default.cshtml" Line="266" Column="27" />
       <File FileName="RiodeAppMVC/Views/Shared/_BasketPartial.cshtml" />
       <File FileName="RiodeAppMVC/Controllers/ShopController.cs" />
       <File FileName="RiodeAppMVC/Controllers/HomeController.cs" />
@@ -25,9 +25,8 @@
               <Node name="Views" expanded="True">
                 <Node name="Shared" expanded="True">
                   <Node name="Components" expanded="True">
-                    <Node name="Basket" expanded="True">
-                      <Node name="Default.cshtml" selected="True" />
-                    </Node>
+                    <Node name="Basket" expanded="True" />
+                    <Node name="Header" expanded="True" />
                   </Node>
                 </Node>
               </Node>

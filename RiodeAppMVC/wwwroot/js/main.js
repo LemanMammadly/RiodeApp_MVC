@@ -72,34 +72,25 @@ window.Riode = {};
             priceQuantityTemplate: '<div class="price-box"><span class="product-quantity">{{count}}</span><span class="product-price">{{price}}</span></div>',
             purchasedTemplate: '<span class="purchased-time">12 MINUTES AGO</span>',
 
-            template: '<div class="minipopup-box"><p class="minipopup-title">{{message}}</p>' +
-                '<div class="product product-purchased {{productClass}} mb-0">' +
-                '<figure class="product-media"><a href="{{imageLink}}"><img src="{{imageSrc}}" alt="product" width="90" height="90"></a></figure>' +
-                '<div class="product-detail">' +
-                '<a href="{{nameLink}}" class="product-name">{{name}}</a>' +
-                '{{detailTemplate}}' +
-                '</div>' +
-                '</div>' +
-                '{{actionTemplate}}' +
-                '</div>',
+            template: 
         },
-        popup: {
-            removalDelay: 350,
-            callbacks: {
-                open: function () {
-                    $( 'html' ).css( 'overflow-y', 'hidden' );
-                    $( 'body' ).css( 'overflow-x', 'visible' );
-                    $( '.mfp-wrap' ).css( 'overflow', 'hidden auto' );
-                    $( '.sticky-header.fixed' ).css( 'padding-right', window.innerWidth - document.body.clientWidth );
-                },
-                close: function () {
-                    $( 'html' ).css( 'overflow-y', '' );
-                    $( 'body' ).css( 'overflow-x', 'hidden' );
-                    $( '.mfp-wrap' ).css( 'overflow', '' );
-                    $( '.sticky-header.fixed' ).css( 'padding-right', '' );
-                }
-            }
-        },
+        //popup: {
+        //    removalDelay: 350,
+        //    callbacks: {
+        //        open: function () {
+        //            $( 'html' ).css( 'overflow-y', 'hidden' );
+        //            $( 'body' ).css( 'overflow-x', 'visible' );
+        //            $( '.mfp-wrap' ).css( 'overflow', 'hidden auto' );
+        //            $( '.sticky-header.fixed' ).css( 'padding-right', window.innerWidth - document.body.clientWidth );
+        //        },
+        //        close: function () {
+        //            $( 'html' ).css( 'overflow-y', '' );
+        //            $( 'body' ).css( 'overflow-x', 'hidden' );
+        //            $( '.mfp-wrap' ).css( 'overflow', '' );
+        //            $( '.sticky-header.fixed' ).css( 'padding-right', '' );
+        //        }
+        //    }
+        //},
         popupPresets: {
             login: {
                 type: 'ajax',
