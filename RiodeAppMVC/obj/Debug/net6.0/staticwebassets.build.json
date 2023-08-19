@@ -1,6 +1,6 @@
 {
   "Version": 1,
-  "Hash": "rwyg3Trujz8OnI/0MMobIeuSg70+ionKR+DJ5c5GnGo=",
+  "Hash": "HxSjM88qt38lu5xpnJZccTz9YAtgiacQdRR1yU/oRAs=",
   "Source": "RiodeAppMVC",
   "BasePath": "_content/RiodeAppMVC",
   "Mode": "Default",
@@ -17406,6 +17406,23 @@
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
       "OriginalItemSpec": "wwwroot/css/style.min.css"
+    },
+    {
+      "Identity": "/Users/imac/Projects/RiodeAppMVC/RiodeAppMVC/wwwroot/emailConfirmation.html",
+      "SourceId": "RiodeAppMVC",
+      "SourceType": "Discovered",
+      "ContentRoot": "/Users/imac/Projects/RiodeAppMVC/RiodeAppMVC/wwwroot/",
+      "BasePath": "_content/RiodeAppMVC",
+      "RelativePath": "emailConfirmation.html",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot/emailConfirmation.html"
     },
     {
       "Identity": "/Users/imac/Projects/RiodeAppMVC/RiodeAppMVC/wwwroot/fonts/riode.eot",

@@ -3,6 +3,7 @@ using System;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 using RiodeAppMVC.DataAccess;
 
@@ -11,9 +12,10 @@ using RiodeAppMVC.DataAccess;
 namespace RiodeAppMVC.Migrations
 {
     [DbContext(typeof(RiodeDbContext))]
-    partial class RiodeDbContextModelSnapshot : ModelSnapshot
+    [Migration("20230818171754_CreatedAppUserTable")]
+    partial class CreatedAppUserTable
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -425,35 +427,6 @@ namespace RiodeAppMVC.Migrations
                     b.ToTable("Sliders");
                 });
 
-            modelBuilder.Entity("RiodeAppMVC.Models.UserToken", b =>
-                {
-                    b.Property<int>("Id")
-                        .ValueGeneratedOnAdd()
-                        .HasColumnType("int");
-
-                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"), 1L, 1);
-
-                    b.Property<string>("AppUserId")
-                        .IsRequired()
-                        .HasColumnType("nvarchar(450)");
-
-                    b.Property<string>("Key")
-                        .IsRequired()
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<DateTime>("SendDate")
-                        .HasColumnType("datetime2");
-
-                    b.Property<bool>("isDeleted")
-                        .HasColumnType("bit");
-
-                    b.HasKey("Id");
-
-                    b.HasIndex("AppUserId");
-
-                    b.ToTable("UserTokens");
-                });
-
             modelBuilder.Entity("RiodeAppMVC.Models.AppUser", b =>
                 {
                     b.HasBaseType("Microsoft.AspNetCore.Identity.IdentityUser");
@@ -566,17 +539,6 @@ namespace RiodeAppMVC.Migrations
                         .IsRequired();
 
                     b.Navigation("Product");
-                });
-
-            modelBuilder.Entity("RiodeAppMVC.Models.UserToken", b =>
-                {
-                    b.HasOne("RiodeAppMVC.Models.AppUser", "AppUser")
-                        .WithMany()
-                        .HasForeignKey("AppUserId")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
-
-                    b.Navigation("AppUser");
                 });
 
             modelBuilder.Entity("RiodeAppMVC.Models.Category", b =>

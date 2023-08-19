@@ -3,6 +3,7 @@ using System;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 using RiodeAppMVC.DataAccess;
 
@@ -11,9 +12,10 @@ using RiodeAppMVC.DataAccess;
 namespace RiodeAppMVC.Migrations
 {
     [DbContext(typeof(RiodeDbContext))]
-    partial class RiodeDbContextModelSnapshot : ModelSnapshot
+    [Migration("20230818194153_CreatedUsertokenTabled")]
+    partial class CreatedUsertokenTabled
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder

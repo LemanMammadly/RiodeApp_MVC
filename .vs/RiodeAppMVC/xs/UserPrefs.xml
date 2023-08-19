@@ -1,33 +1,26 @@
 ﻿<Properties StartupConfiguration="{F1536085-DF1C-407F-B0DB-B3814D1DE6DF}|Default">
+  <MonoDevelop.Ide.DebuggingService.PinnedWatches />
   <MonoDevelop.Ide.ItemProperties.RiodeAppMVC PreferredExecutionTarget="/Applications/Google Chrome.app" />
-  <MonoDevelop.Ide.Workbench ActiveDocument="RiodeAppMVC/ViewComponents/BasketViewComponent.cs">
+  <MonoDevelop.Ide.Workbench ActiveDocument="RiodeAppMVC/Views/Auth/Login.cshtml">
     <Files>
-      <File FileName="RiodeAppMVC/ViewComponents/BasketViewComponent.cs" Line="19" Column="6" />
-      <File FileName="RiodeAppMVC/ViewComponents/HeaderViewComponent.cs" />
-      <File FileName="RiodeAppMVC/Views/Shared/Components/Basket/Default.cshtml" Line="34" Column="1" />
-      <File FileName="RiodeAppMVC/Views/Shared/_Layout.cshtml" />
-      <File FileName="RiodeAppMVC/Views/Shared/_ProductPartial.cshtml" />
-      <File FileName="RiodeAppMVC/Views/Home/Index.cshtml" />
-      <File FileName="RiodeAppMVC/Views/Shared/Components/Header/Default.cshtml" Line="266" Column="27" />
-      <File FileName="RiodeAppMVC/Views/Shared/_BasketPartial.cshtml" />
-      <File FileName="RiodeAppMVC/Controllers/ShopController.cs" />
-      <File FileName="RiodeAppMVC/Controllers/HomeController.cs" />
-      <File FileName="RiodeAppMVC/Views/Shared/Components/Footer/Default.cshtml" />
-      <File FileName="RiodeAppMVC/Views/Shared/_CategoryHomePartial.cshtml" />
-      <File FileName="RiodeAppMVC/Views/Shared/_Layout.cshtml.css" />
+      <File FileName="RiodeAppMVC/ViewModels/UserVMs/UserAndRoleVM.cs" />
+      <File FileName="RiodeAppMVC/Controllers/AuthController.cs" Line="154" Column="14" />
+      <File FileName="RiodeAppMVC/Program.cs" Line="29" Column="1" />
+      <File FileName="RiodeAppMVC/Views/Auth/Login.cshtml" Line="45" Column="75" />
     </Files>
     <Pads>
       <Pad Id="ProjectPad">
         <State name="__root__">
           <Node name="RiodeAppMVC" expanded="True">
-            <Node name="RiodeAppMVC" expanded="True">
-              <Node name="ViewComponents" expanded="True" />
+            <Node name="RiodeAppMVC">
+              <Node name="Dependencies" expanded="True">
+                <Node name="PackageDependencies" expanded="True" />
+              </Node>
+              <Node name="Controllers" expanded="True" />
+              <Node name="ViewModels" expanded="True" />
               <Node name="Views" expanded="True">
-                <Node name="Shared" expanded="True">
-                  <Node name="Components" expanded="True">
-                    <Node name="Basket" expanded="True" />
-                    <Node name="Header" expanded="True" />
-                  </Node>
+                <Node name="Auth" expanded="True">
+                  <Node name="Login.cshtml" selected="True" />
                 </Node>
               </Node>
             </Node>
@@ -37,9 +30,8 @@
     </Pads>
   </MonoDevelop.Ide.Workbench>
   <MultiItemStartupConfigurations />
-  <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" />
-  <MonoDevelop.Ide.DebuggingService.PinnedWatches />
   <MonoDevelop.Ide.DebuggingService.Breakpoints>
     <BreakpointStore />
   </MonoDevelop.Ide.DebuggingService.Breakpoints>
+  <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" />
 </Properties>

@@ -15,6 +15,7 @@ namespace RiodeAppMVC.Services
 			services.AddScoped<IProductService, ProductService>();
 			services.AddScoped<ICategoryService, CategoryService>();
 			services.AddScoped<IColorService, ColorService>();
+			services.AddScoped<IEmailService, EmailService>();
 		}
 	}
 }

@@ -1,9 +1,9 @@
-﻿@model HomeVM
-
+﻿
 @section styles{
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/toastr.min.css" />
 }
 
+@model HomeVM
 <main class="main">
     <input type="hidden" value="@ViewBag.ProductCount" id="prodCount">
     <div class="page-content">
@@ -677,7 +677,8 @@
 
 @section scripts{
     <script src="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/toastr.min.js"></script>
-    <script>let prods = document.querySelectorAll(".feat-prod .d-icon-bag");
+    <script>
+        let prods = document.querySelectorAll(".feat-prod .d-icon-bag");
         document.getElementById('myTabContent').addEventListener("click", e => {
             e.preventDefault();
             if (e.srcElement.classList.contains("d-icon-bag")) {
