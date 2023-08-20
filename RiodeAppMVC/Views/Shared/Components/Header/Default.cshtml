@@ -1,4 +1,4 @@
-﻿
+﻿@model Dictionary<string,string>
 
 <div class="page-wrapper">
     <h1 class="d-none">Riode - Responsive eCommerce HTML Template</h1>
@@ -10,7 +10,7 @@
                         <i class="d-icon-bars2"></i>
                     </a>
                     <a asp-area="Manage" asp-controller="Product" asp-action="Index" class="logo">
-                        <img src="~/images/demos/demo7/logo.png" alt="logo" width="154" height="43" />
+                        <img src="@(Model["HeaderLogo"] ?? "")" alt="logo" width="154" height="43" />
                     </a>
                     <!-- End of Logo -->
                 </div>
@@ -231,29 +231,35 @@
                             </button>
                         </form>
                     </div>
-                    <!-- End of Header Search -->
-                    <a class="login-link" href="ajax/login.html" data-toggle="login-modal">
-                        <i class="d-icon-user"></i>
-                    </a>
-
-                    <a href="wishlist.html" class="wishlist mr-4 d-lg-show">
-                        <i class="d-icon-heart"></i>
-                    </a>
-
-                    <div class="dropdown cart-dropdown type2 mr-0 mr-lg-2">
-                        <a href="cart.html" class="cart-toggle link">
-                            <i class="d-icon-bag"><span class="cart-count" id="basketCount">0</span></i>
+                    @if (User.Identity.IsAuthenticated)
+                    {
+                        <a class="mr-2">@User.Identity.Name</a>
+                        <a asp-controller="Auth" asp-action="Signout">
+                    <i style="font-size:20px" class="fa-solid fa-right-from-bracket mr-2"></i></a>
+                    }
+                    else
+                    {
+                        <a asp-controller="Auth" asp-action="Login" >
+                    <i class="d-icon-user mr-2" style="font-size:20px"></i></a>
+                    }
+                        <a href="wishlist.html" class="wishlist mr-4 d-lg-show">
+                            <i class="d-icon-heart"></i>
                         </a>
 
-                        <!-- End Cart Toggle -->
-                        <div class="dropdown-box">
-                            <div class="products scrollable">
-                                @await Component.InvokeAsync("Basket")
+                        <div class="dropdown cart-dropdown type2 mr-0 mr-lg-2">
+                            <a href="cart.html" class="cart-toggle link">
+                                <i class="d-icon-bag"><span class="cart-count" id="basketCount">0</span></i>
+                            </a>
+
+                            <!-- End Cart Toggle -->
+                            <div class="dropdown-box">
+                                <div class="products scrollable">
+                                    @await Component.InvokeAsync("Basket")
+                                </div>
+                                <!-- End of Products  -->
                             </div>
-                            <!-- End of Products  -->
+                            <!-- End Dropdown Box -->
                         </div>
-                        <!-- End Dropdown Box -->
                     </div>
-        </div>
     </header>
     <!-- End of Header -->

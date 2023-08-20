@@ -1,7 +1,9 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Data;
 using System.Linq;
 using System.Threading.Tasks;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 using RiodeAppMVC.Services.Interfaces;
@@ -10,6 +12,7 @@ using RiodeAppMVC.ViewModels.CategoryVMs;
 namespace RiodeAppMVC.Areas.Manage.Controllers
 {
     [Area("Manage")]
+    [Authorize(Roles = "Admin,Editor")]
     public class CategoryController : Controller
     {
         readonly ICategoryService _catService;

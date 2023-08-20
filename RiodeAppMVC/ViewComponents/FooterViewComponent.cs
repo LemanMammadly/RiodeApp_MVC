@@ -1,5 +1,6 @@
 ﻿using System;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.EntityFrameworkCore;
 using RiodeAppMVC.DataAccess;
 
 namespace RiodeAppMVC.ViewComponents
@@ -15,7 +16,7 @@ namespace RiodeAppMVC.ViewComponents
 
         public async Task<IViewComponentResult> InvokeAsync()
         {
-            return View();
+            return View(await _context.Settings.ToDictionaryAsync(s => s.Key, s => s.Value));
         }
     }
 }

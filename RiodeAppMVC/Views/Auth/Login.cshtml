@@ -1,5 +1,4 @@
-﻿
-@model LoginVM
+﻿@model LoginVM
 
 <main class="main">
     <nav class="breadcrumb-nav">
@@ -43,10 +42,11 @@
                                         <div class="mb-3">@Html.Raw(ViewBag.ConfirmationMessage)</div>
                                     }
                                     <div asp-validation-summary="ModelOnly" style="color:red" class="text-danger col-12"></div>
-
                                     <button class="btn btn-dark btn-block btn-rounded" type="submit">Login</button>
                                 </form>
                                 <div class="form-choice text-center">
+                                    <label>You don't have any account yet?</label>
+                                    <a asp-controller="Auth" asp-action="Register">Register</a>
                                     <label class="ls-m">or Login With</label>
                                     <div class="social-links">
                                         <a href="#" class="social-link social-google fab fa-google border-no"></a>

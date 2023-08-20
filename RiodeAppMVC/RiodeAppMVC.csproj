@@ -54,6 +54,8 @@
     <Folder Include="ViewModels\AuthVMs\" />
     <Folder Include="Views\Auth\" />
     <Folder Include="ViewModels\UserVMs\" />
+    <Folder Include="Areas\Manage\Views\User\" />
+    <Folder Include="Views\Shared\Components\HomeCategory\" />
   </ItemGroup>
   <ItemGroup>
     <None Remove="Models\" />
@@ -91,6 +93,8 @@
     <None Remove="ViewModels\AuthVMs\" />
     <None Remove="Views\Auth\" />
     <None Remove="ViewModels\UserVMs\" />
+    <None Remove="Areas\Manage\Views\User\" />
+    <None Remove="Views\Shared\Components\HomeCategory\" />
   </ItemGroup>
   <ItemGroup>
     <PackageReference Include="Microsoft.EntityFrameworkCore.SqlServer" Version="6.0.21" />

@@ -17,7 +17,8 @@ namespace RiodeAppMVC.DataAccess
 		public DbSet<ProductColor> ProductColors { get; set; }
         public DbSet<AppUser> AppUsers { get; set; }
 		public DbSet<UserToken> UserTokens { get; set; }
-    }
+		public DbSet<Setting> Settings { get; set; }
+	}
 }
 
 

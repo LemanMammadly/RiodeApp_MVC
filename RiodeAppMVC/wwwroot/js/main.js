@@ -48,32 +48,32 @@ window.Riode = {};
                 columnWidth: '.grid-space'
             }
         },
-        minipopup: {
-            // info
-            message: '',
-            productClass: '', // ' product-cart', ' product-list-sm'
-            imageSrc: '',
-            imageLink: '#',
-            name: '',
-            nameLink: '#', // 'product.html',
-            price: '',
-            count: null,
-            rating: null,
-            actionTemplate: '',
-            isPurchased: false,
+        //minipopup: {
+        //    // info
+        //    message: '',
+        //    productClass: '', // ' product-cart', ' product-list-sm'
+        //    imageSrc: '',
+        //    imageLink: '#',
+        //    name: '',
+        //    nameLink: '#', // 'product.html',
+        //    price: '',
+        //    count: null,
+        //    rating: null,
+        //    actionTemplate: '',
+        //    isPurchased: false,
 
-            // option
-            delay: 4000, // milliseconds
-            space: 20,
+        //    // option
+        //    delay: 4000, // milliseconds
+        //    space: 20,
 
-            // template
-            priceTemplate: '<span class="product-price">{{price}}</span>',
-            ratingTemplate: '<div class="ratings-container"><div class="ratings-full"><span class="ratings" style="width:{{rating}}"></span><span class="tooltiptext tooltip-top"></span></div></div>',
-            priceQuantityTemplate: '<div class="price-box"><span class="product-quantity">{{count}}</span><span class="product-price">{{price}}</span></div>',
-            purchasedTemplate: '<span class="purchased-time">12 MINUTES AGO</span>',
+        //    // template
+        //    priceTemplate: '<span class="product-price">{{price}}</span>',
+        //    ratingTemplate: '<div class="ratings-container"><div class="ratings-full"><span class="ratings" style="width:{{rating}}"></span><span class="tooltiptext tooltip-top"></span></div></div>',
+        //    priceQuantityTemplate: '<div class="price-box"><span class="product-quantity">{{count}}</span><span class="product-price">{{price}}</span></div>',
+        //    purchasedTemplate: '<span class="purchased-time">12 MINUTES AGO</span>',
 
-            template: 
-        },
+        //    template: 
+        //},
         //popup: {
         //    removalDelay: 350,
         //    callbacks: {

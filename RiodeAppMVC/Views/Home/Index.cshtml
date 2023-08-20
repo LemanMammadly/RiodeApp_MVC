@@ -75,7 +75,8 @@
                     </div>
                 }
             </div>
-            <partial name="_CategoryHomePartial" model="Model.Categories" />
+
+            @await Component.InvokeAsync("HomeCategory")
         </section>
 
         <section class="mt-10 pt-7 appear-animate" data-animation-options="{

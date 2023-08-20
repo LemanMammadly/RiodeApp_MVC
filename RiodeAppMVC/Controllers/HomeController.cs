@@ -3,23 +3,28 @@ using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 using Newtonsoft.Json;
 using RiodeAppMVC.DataAccess;
+using RiodeAppMVC.Models;
 using RiodeAppMVC.Services.Interfaces;
 using RiodeAppMVC.ViewModels.BasketVMs;
+using RiodeAppMVC.ViewModels.CategoryVMs;
 using RiodeAppMVC.ViewModels.HomeVMs;
+using RiodeAppMVC.ViewModels.ProductVMs;
 
 namespace RiodeAppMVC.Controllers;
 
 public class HomeController : Controller
 {
+    readonly RiodeDbContext _context;
     readonly ISliderService _sliderService;
     readonly IProductService _productService;
     readonly ICategoryService _categoryService;
 
-    public HomeController(ISliderService sliderService, IProductService productService, ICategoryService categoryService)
+    public HomeController(ISliderService sliderService, IProductService productService, ICategoryService categoryService, RiodeDbContext context)
     {
         _sliderService = sliderService;
         _productService = productService;
         _categoryService = categoryService;
+        _context = context;
     }
 
     public async Task<IActionResult> Index()
@@ -71,5 +76,9 @@ public class HomeController : Controller
         }
         return PartialView("_BasketPartial", basketVM);
     }
+
+
+
+
 }
 
